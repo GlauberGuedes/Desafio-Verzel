@@ -24,7 +24,7 @@ export default function Login() {
   const [openLoading, setOpenLoading] = useState(false);
   const [erro, setErro] = useState("");
   const { setToken } = useAuth();
-  //const history = useHistory();
+  const history = useHistory();
 
   // useEffect(() => {
   //   if(token) {
@@ -64,7 +64,7 @@ export default function Login() {
         return setErro(dados);
       }
       setToken(dados.token);
-      console.log(dados)
+      history.push('/home');
 
     } catch (error) {
       setOpenLoading(false);

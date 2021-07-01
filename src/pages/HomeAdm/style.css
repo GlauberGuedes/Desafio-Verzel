@@ -1,0 +1,17 @@
+.container {
+  background: #1c0c3f;
+  min-height: 100vh;
+}
+
+.conteudo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  min-height: 100vh;
+}
+
+h1{
+  font-size: 44px;
+}
