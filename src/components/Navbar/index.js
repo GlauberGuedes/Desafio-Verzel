@@ -16,7 +16,7 @@ export default function Navbar() {
     <AppBar position="fixed" className={classes.appbar}>
       <Toolbar className={classes.nav}>
         <NavLink to="/modulos" className={classes.cursor}>Módulos</NavLink>
-        <NavLink to="/" className={classes.cursor}>Aulas</NavLink>
+        <NavLink to="/aulas" className={classes.cursor}>Aulas</NavLink>
         <button className={classes.close} onClick={deslogar}>Sair</button>
       </Toolbar>
     </AppBar>

@@ -3,7 +3,7 @@ import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import Divider from "@material-ui/core/Divider";
 import Button from "@material-ui/core/Button";
-import { NavLink,useParams, useHistory } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import useStyles from "./style";
 import { useState } from "react";
 import useAuth from "../../hooks/useAuth";
@@ -12,23 +12,26 @@ import Loading from "../../components/Loading";
 import SnackbarAlert from "../../components/SnackbarAlert";
 
 
-export default function EditarModulo() {
+export default function CriarModulo() {
   const classes = useStyles();
   const { register, handleSubmit } = useForm();
   const { token } = useAuth();
   const [erro, setErro] = useState('');
   const [openLoading, setOpenLoading] = useState(false);
-  const { id } = useParams();
   const history = useHistory();
 
 
   async function onSubmit(data) {
     setErro('');
+
+    if(!data.nome) {
+      return setErro('O campo nome é obrigatório.')
+    }
     
     try{
       setOpenLoading(true);
-      const resposta = await fetch(`http://localhost:8000/modulos/${id}`, {
-        method: 'PUT',
+      const resposta = await fetch(`http://localhost:8000/modulos`, {
+        method: 'POST',
         body: JSON.stringify(data),
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -56,7 +59,7 @@ export default function EditarModulo() {
       <Navbar />
       <div className={classes.containerEditar}>
         <Typography variant="h4" component="h2" className={classes.subtitulo}>
-          Editar módulo
+          Criar módulo
         </Typography>
         <form onSubmit={handleSubmit(onSubmit)}>
             <TextField

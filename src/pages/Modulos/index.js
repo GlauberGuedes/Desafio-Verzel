@@ -5,7 +5,7 @@ import Divider from "@material-ui/core/Divider";
 import useStyles from "./style";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
-//import ModalDelete from "../../components/ModalDelete";
+import ModalDelete from "../../components/ModalDelete";
 import { useHistory } from "react-router-dom";
 import Loading from "../../components/Loading";
 import SnackbarAlert from "../../components/SnackbarAlert";
@@ -47,7 +47,7 @@ export default function HomeAdm() {
   return (
     <div className={classes.body}>
       <Navbar />
-      <div className={classes.produtos}>
+      <div className={classes.modulos}>
         <Typography variant="h4" component="h2" className={classes.subtitulo}>
           Seus módulos
         </Typography>
@@ -55,15 +55,20 @@ export default function HomeAdm() {
           {modulos.map((modulo) => {
             return (
               <div className={classes.card} key={modulo.id} onClick={() => history.push(`./modulos/${modulo.id}/editar`)}>
-                <h3>{modulo.nome}</h3>
-                <h4>02 Aulas</h4>
+                <div className={classes.icone}>
+                <ModalDelete id={modulo.id} setErro={setErro} setOpenLoading={setOpenLoading} token={token} getProducts={getProducts}/>
+                </div>
+                <div className={classes.conteudoModulo}>
+                  <h3>{modulo.nome}</h3>
+                  <h4>02 Aulas</h4>
+                </div>
               </div>
             );
           })}
         </div>
-        <Divider />
+        <Divider className={classes.divider}/>
         <Button
-          onClick={() => history.push(`/produtos/novo`)}
+          onClick={() => history.push(`/modulos/novo`)}
           variant="contained"
           color="primary"
           className={classes.button}

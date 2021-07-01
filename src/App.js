@@ -10,6 +10,7 @@ import Cadastro from "./pages/Cadastro";
 import HomeAdm from "./pages/HomeAdm";
 import Modulos from "./pages/Modulos";
 import EditarModulo from "./pages/EditarModulo";
+import CriarModulo from "./pages/CriarModulo";
 import useAuth from "./hooks/useAuth";
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path="/home" component={HomeAdm} />
           <Route path="/modulos" exact component={Modulos} />
           <Route path="/modulos/:id/editar" component={EditarModulo} />
+          <Route path="/modulos/novo" component={CriarModulo} />
           </RotasProtegidas>
         </Switch>
       </Router>
