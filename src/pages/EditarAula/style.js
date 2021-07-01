@@ -16,9 +16,13 @@ const useStyles = makeStyles((theme) => ({
     height: "100vh",
     justifyContent: "space-between",
   },
+  form: {
+    display: "flex",
+    flexDirection: "column",
+    gap: 50
+  },
   input: {
     width: 392,
-    marginBottom: 200,
   },
   botoes: {
     display: "flex",

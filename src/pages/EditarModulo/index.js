@@ -54,7 +54,7 @@ export default function EditarModulo() {
   return (
     <div className={classes.body}>
       <Navbar />
-      <div className={classes.containerEditar}>
+      <div className={classes.containerCriar}>
         <Typography variant="h4" component="h2" className={classes.subtitulo}>
           Editar módulo
         </Typography>

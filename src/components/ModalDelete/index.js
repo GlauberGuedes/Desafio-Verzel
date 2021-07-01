@@ -8,7 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import useStyles from "./style";
 import { useState } from "react";
 
-export default function Modal({ id, setErro, setOpenLoading, token, getProducts }) {
+export default function Modal({ id, setErro, setOpenLoading, token, getProducts, nome }) {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
 
@@ -29,7 +29,7 @@ export default function Modal({ id, setErro, setOpenLoading, token, getProducts 
     setOpenLoading(true);
     
     try {
-      const resposta = await fetch(`http://localhost:8000/modulos/${id}`, {
+      const resposta = await fetch(`http://localhost:8000/${nome}/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`

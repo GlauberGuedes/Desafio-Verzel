@@ -12,9 +12,9 @@ import Loading from "../../components/Loading";
 import SnackbarAlert from "../../components/SnackbarAlert";
 
 
-export default function CriarModulo() {
+export default function CriarAula() {
   const classes = useStyles();
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const { token } = useAuth();
   const [erro, setErro] = useState('');
   const [openLoading, setOpenLoading] = useState(false);
@@ -24,13 +24,13 @@ export default function CriarModulo() {
   async function onSubmit(data) {
     setErro('');
 
-    if(!data.nome) {
-      return setErro('O campo nome é obrigatório.')
+    if(!data.nome || !data.modulo || !data.data) {
+      return setErro('Todos os campos são obrigatórios.')
     }
-    
+
     try{
       setOpenLoading(true);
-      const resposta = await fetch(`http://localhost:8000/modulos`, {
+      const resposta = await fetch(`http://localhost:8000/aulas`, {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
@@ -43,12 +43,14 @@ export default function CriarModulo() {
       setOpenLoading(false);
 
       if(!resposta.ok) {
+        reset({});
         return setErro(resultado);
       }
 
-      history.push('/modulos');
+      history.push('/aulas');
 
     }catch(error) {
+      reset({});
       setOpenLoading(false);
       return setErro(error.message)
     }
@@ -57,16 +59,51 @@ export default function CriarModulo() {
   return (
     <div className={classes.body}>
       <Navbar />
-      <div className={classes.containerEditar}>
+      <div className={classes.containerCriar}>
         <Typography variant="h4" component="h2" className={classes.subtitulo}>
-          Criar módulo
+          Criar aula
         </Typography>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
             <TextField
               className={classes.input}
               id="nome"
-              label="Nome do módulo"
+              label="Nome da aula"
               {...register("nome")}
+              InputLabelProps={{
+                shrink: true,
+                classes: {
+                  root: classes.cssLabel,
+                }
+              }}
+              InputProps={{
+                classes: {
+                  root: classes.cssLabel,
+                }
+              }}
+            />
+            <TextField
+              className={classes.input}
+              id="modulo"
+              label="Nome do módulo"
+              {...register("modulo")}
+              InputLabelProps={{
+                shrink: true,
+                classes: {
+                  root: classes.cssLabel,
+                }
+              }}
+              InputProps={{
+                classes: {
+                  root: classes.cssLabel,
+                }
+              }}
+            />
+            <TextField
+              className={classes.input}
+              id="data"
+              label="Data"
+              type="datetime-local"
+              {...register("data")}
               InputLabelProps={{
                 shrink: true,
                 classes: {
@@ -81,7 +118,7 @@ export default function CriarModulo() {
             />
           <Divider className={classes.divider}/>
           <div className={classes.botoes}>
-            <NavLink className={classes.cor} to="/modulos">
+            <NavLink className={classes.cor} to="/aulas">
               CANCELAR
             </NavLink>
             <Button
@@ -90,7 +127,7 @@ export default function CriarModulo() {
               variant="contained"
               color="primary"
             >
-              CRIAR MÓDULO
+              CRIAR AULA
             </Button>
           </div>
         </form>

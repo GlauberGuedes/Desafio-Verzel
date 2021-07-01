@@ -11,6 +11,9 @@ import HomeAdm from "./pages/HomeAdm";
 import Modulos from "./pages/Modulos";
 import EditarModulo from "./pages/EditarModulo";
 import CriarModulo from "./pages/CriarModulo";
+import CriarAula from "./pages/CriarAula";
+import EditarAula from "./pages/EditarAula";
+import Aulas from "./pages/Aulas";
 import useAuth from "./hooks/useAuth";
 
 function App() {
@@ -32,6 +35,9 @@ function App() {
           <Route path="/modulos" exact component={Modulos} />
           <Route path="/modulos/:id/editar" component={EditarModulo} />
           <Route path="/modulos/novo" component={CriarModulo} />
+          <Route path="/aulas" exact component={Aulas} />
+          <Route path="/aulas/novo" component={CriarAula} />
+          <Route path="/aulas/:id/editar" component={EditarAula} />
           </RotasProtegidas>
         </Switch>
       </Router>

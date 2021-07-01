@@ -11,7 +11,7 @@ import Loading from "../../components/Loading";
 import SnackbarAlert from "../../components/SnackbarAlert";
 
 
-export default function HomeAdm() {
+export default function Modulos() {
   const classes = useStyles();
   const history = useHistory();
   const { token } = useAuth();
@@ -56,11 +56,13 @@ export default function HomeAdm() {
             return (
               <div className={classes.card} key={modulo.id} onClick={() => history.push(`./modulos/${modulo.id}/editar`)}>
                 <div className={classes.icone}>
-                <ModalDelete id={modulo.id} setErro={setErro} setOpenLoading={setOpenLoading} token={token} getProducts={getProducts}/>
+                <ModalDelete id={modulo.id} setErro={setErro} setOpenLoading={setOpenLoading} token={token} getProducts={getProducts} nome='modulos'/>
                 </div>
                 <div className={classes.conteudoModulo}>
                   <h3>{modulo.nome}</h3>
-                  <h4>02 Aulas</h4>
+                  {modulo.aulas.length > 0 ? 
+                  <h4>{modulo.aulas.length} {modulo.aulas.length > 1 ? 'aulas' : 'aula'}</h4>
+                  : ""}
                 </div>
               </div>
             );
