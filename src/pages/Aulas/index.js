@@ -39,7 +39,6 @@ export default function Aulas() {
     }
   }
 
-
   return (
     <div className={classes.body}>
       <Navbar />

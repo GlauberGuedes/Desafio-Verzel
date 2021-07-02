@@ -1,9 +1,10 @@
 .container {
   background: #1c0c3f;
   min-height: 100vh;
+  padding-bottom: 40px;
 }
 
-header {
+.header {
   display: flex;
   justify-content: space-between;
   padding: 40px 150px 40px 150px;
@@ -11,7 +12,7 @@ header {
   margin-bottom: 30px;
 }
 
-h3 {
+.header h3 {
   font-size: 32px;
   color: white;
   letter-spacing: 1px
@@ -51,11 +52,12 @@ h2 {
 
 .listaModulos {
   display: flex;
-  gap: 20px;
+  gap: 30px;
   flex-wrap: wrap;
 }
 
 .card-modulo {
+  all: unset;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -68,12 +70,21 @@ h2 {
   cursor: pointer;
 }
 
+.card-modulo:hover {
+  border-color: rgb(59, 212, 45);
+}
+
+.card-modulo:focus {
+  border: 2px solid rgb(59, 212, 45);
+}
+
 .card-modulo p {
   color: rgb(59, 212, 45);
   font-weight: 600;
 }
 
 .modulo-default {
+  all: unset;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -85,3 +96,50 @@ h2 {
   min-height: 60px;
   cursor: not-allowed;
 }
+
+.aulas {
+  margin-top: 30px;
+}
+
+.aulas-p {
+  margin: 20px 0 50px 0;
+}
+
+.lista-aulas {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.card-aula {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 30px 10px 30px;
+  width: 201px;
+  min-height: 150px;
+  border-radius: 24px;
+  border: 1px solid rgb(67, 51, 118);
+  color: rgb(59, 212, 45);
+  background: rgb(36, 18, 75);
+  cursor: pointer;
+}
+
+.card-aula:hover {
+  border-color: rgb(59, 212, 45);
+}
+
+.data {
+  color: rgb(37, 203, 211);
+  border: 1px solid rgb(37, 203, 211);
+  border-radius: 4px;
+  padding: 5px;
+  text-align: center;
+  margin: 15px 0 15px 0;
+  font-size: 18px;
+}
+
+.card-aula h4 {
+  font-size: 20px;
+}
+

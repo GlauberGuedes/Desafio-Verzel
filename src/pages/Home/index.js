@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Loading from "../../components/Loading";
 import SnackbarAlert from "../../components/SnackbarAlert";
+import useAuth from "../../hooks/useAuth";
 import "./style.css";
 
 export default function Home() {
@@ -10,6 +11,14 @@ export default function Home() {
   const [erro, setErro] = useState("");
   const [openLoading, setOpenLoading] = useState(false);
   const [nomeModulo, setNomeModulo] = useState("");
+  const { token } = useAuth();
+  const history = useHistory();
+
+  useEffect(() => {
+    if(token) {
+      history.push('/home');
+    }
+  }, [])
 
   useEffect(() => {
     getModulos();
@@ -36,7 +45,7 @@ export default function Home() {
     setErro("");
     setOpenLoading(true);
     try {
-      const resposta = await fetch(`http://localhost:8000/aulas/${nome}`);
+      const resposta = await fetch(`http://localhost:8000/aulas?modulo=${nome}`);
 
       const data = await resposta.json();
       setOpenLoading(false);
@@ -50,7 +59,7 @@ export default function Home() {
 
   return (
     <div className="container">
-      <header>
+      <div className="header">
         <h3>Desafio</h3>
         <nav>
           <Link className="link" to="/login">
@@ -60,14 +69,14 @@ export default function Home() {
             CADASTRE-SE
           </Link>
         </nav>
-      </header>
+      </div>
       <div className="modulos">
         <h2>Módulos</h2>
         <p>Selecione o módulo para ver as aulas disponíveis:</p>
         <div className="listaModulos">
           {modulos.map((modulo) => {
             return (
-              <div className={modulo.aulas.length === 0 ? "modulo-default" : "card-modulo"} onClick={() => getAulas(modulo.nome)}>
+              <button className={modulo.aulas.length === 0 ? "modulo-default" : "card-modulo"} onClick={() => getAulas(modulo.nome)}>
                 <p>{modulo.nome}</p>
                 {modulo.aulas.length > 0 ? (
                   <p>
@@ -77,14 +86,15 @@ export default function Home() {
                 ) : (
                   ""
                 )}
-              </div>
+              </button>
             );
           })}
         </div>
-        <div>
+        {nomeModulo && 
+        <div className= "aulas">
           <h2>{nomeModulo}</h2>
-          <p>Todas as aulas disponíveis nesse módulo:</p>
-          <div className="listaAulas">
+          <p className= "aulas-p">Todas as aulas disponíveis nesse módulo:</p>
+          <div className="lista-aulas">
             {aulas.map(aula => {
               return (
                 <div className="card-aula">
@@ -99,7 +109,7 @@ export default function Home() {
               )
             })}
           </div>
-        </div>
+        </div>}
       </div>
       <Loading open={openLoading} />
       <SnackbarAlert erro={erro} />

@@ -24,7 +24,7 @@ export default function Modal({ id, setErro, setOpenLoading, token, get, nome })
     e.stopPropagation();
   }
 
-  async function removerProduto () {
+  async function removerItem () {
     setErro('');
     setOpenLoading(true);
     
@@ -74,9 +74,9 @@ export default function Modal({ id, setErro, setOpenLoading, token, get, nome })
         </DialogContent>
         <DialogActions className={classes.botoes}>
           <Button variant="contained" onClick={handleClose} color="primary">
-            Manter módulo
+            Manter {nome.toUpperCase()}
           </Button>
-          <Button variant="contained" type="submit" color="secondary" onClick = {removerProduto}>
+          <Button variant="contained" type="submit" color="secondary" onClick = {removerItem}>
             Remover
           </Button>
         </DialogActions>
