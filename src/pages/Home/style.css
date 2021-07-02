@@ -1,0 +1,87 @@
+.container {
+  background: #1c0c3f;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 150px 40px 150px;
+  border-bottom: 1px solid rgba(67, 77, 221, 0.541);
+  margin-bottom: 30px;
+}
+
+h3 {
+  font-size: 32px;
+  color: white;
+  letter-spacing: 1px
+}
+
+nav {
+  display: flex;
+  gap: 30px
+}
+
+.link {
+  all: unset;
+  color: rgb(37, 203, 211);
+  border-radius: 10px;
+  border: 1px solid rgb(37, 203, 211);
+  padding: 10px 15px 10px 15px;
+  cursor: pointer;
+}
+
+.modulos {
+  padding: 0 150px 0 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px
+}
+
+h2 {
+  font-size: 34px;
+  color: white;
+  letter-spacing: 1px
+}
+
+.modulos p {
+  font-size: 18px;
+  color: rgba(144, 89, 245, 0.884);
+}
+
+.listaModulos {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card-modulo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-radius: 24px;
+  border: 1px solid rgb(67, 51, 118);
+  background: rgb(36, 18, 75);
+  width: 201px;
+  min-height: 60px;
+  cursor: pointer;
+}
+
+.card-modulo p {
+  color: rgb(59, 212, 45);
+  font-weight: 600;
+}
+
+.modulo-default {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-radius: 24px;
+  border: 1px solid rgb(67, 51, 118);
+  background: rgb(36, 18, 75);
+  width: 201px;
+  min-height: 60px;
+  cursor: not-allowed;
+}

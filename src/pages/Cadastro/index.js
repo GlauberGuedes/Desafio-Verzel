@@ -175,7 +175,7 @@ export default function Cadastro() {
           CRIAR CONTA
         </Button>
         <Typography variant="body2" component="p">
-          Já possui uma conta? <NavLink className={classes.link} to="/">ACESSE</NavLink>
+          Já possui uma conta? <NavLink className={classes.link} to="/login">ACESSE</NavLink>
         </Typography>
       </form>
       <Loading open={openLoading}/>

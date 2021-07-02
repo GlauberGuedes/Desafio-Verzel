@@ -20,18 +20,14 @@ export default function Aulas() {
   const [aulas, setAulas] = useState([]);
 
   useEffect(() => {
-    getProducts();
+    getAulas();
   }, []);
 
-  async function getProducts() {
+  async function getAulas() {
     setErro("");
     setOpenLoading(true);
     try {
-      const resposta = await fetch("http://localhost:8000/aulas", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const resposta = await fetch("http://localhost:8000/aulas");
 
       const data = await resposta.json();
       setOpenLoading(false);
@@ -56,7 +52,7 @@ export default function Aulas() {
             return (
               <div className={classes.card} key={aula.id} onClick={() => history.push(`./aulas/${aula.id}/editar`)}>
                 <div className={classes.icone}>
-                <ModalDelete id={aula.id} setErro={setErro} setOpenLoading={setOpenLoading} token={token} getProducts={getProducts} nome='aulas'/>
+                <ModalDelete id={aula.id} setErro={setErro} setOpenLoading={setOpenLoading} token={token} get={getAulas} nome='aulas'/>
                 </div>
                   <h3>{aula.nome}</h3>
                   <h4 className={classes.data}>

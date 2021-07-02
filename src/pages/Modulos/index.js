@@ -20,18 +20,14 @@ export default function Modulos() {
   const [modulos, setModulos] = useState([]);
 
   useEffect(() => {
-    getProducts();
+    getModulos();
   }, []);
 
-  async function getProducts() {
+  async function getModulos() {
     setErro("");
     setOpenLoading(true);
     try {
-      const resposta = await fetch("http://localhost:8000/modulos", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const resposta = await fetch("http://localhost:8000/modulos");
 
       const data = await resposta.json();
       setOpenLoading(false);
@@ -56,7 +52,7 @@ export default function Modulos() {
             return (
               <div className={classes.card} key={modulo.id} onClick={() => history.push(`./modulos/${modulo.id}/editar`)}>
                 <div className={classes.icone}>
-                <ModalDelete id={modulo.id} setErro={setErro} setOpenLoading={setOpenLoading} token={token} getProducts={getProducts} nome='modulos'/>
+                <ModalDelete id={modulo.id} setErro={setErro} setOpenLoading={setOpenLoading} token={token} get={getModulos} nome='modulos'/>
                 </div>
                 <div className={classes.conteudoModulo}>
                   <h3>{modulo.nome}</h3>

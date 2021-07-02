@@ -7,6 +7,7 @@ import {
 import { AuthContextProvider } from "./context/AuthContext";
 import Login from "./pages/Login";
 import Cadastro from "./pages/Cadastro";
+import Home from "./pages/Home";
 import HomeAdm from "./pages/HomeAdm";
 import Modulos from "./pages/Modulos";
 import EditarModulo from "./pages/EditarModulo";
@@ -28,7 +29,8 @@ function App() {
     <AuthContextProvider>
       <Router>
         <Switch>
-          <Route path="/" exact component={Login} />
+        <Route path="/" exact component={Home} />
+          <Route path="/login" component={Login} />
           <Route path="/cadastro" component={Cadastro} />
           <RotasProtegidas>
           <Route path="/home" component={HomeAdm} />
