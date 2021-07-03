@@ -27,7 +27,7 @@ export default function Aulas() {
     setErro("");
     setOpenLoading(true);
     try {
-      const resposta = await fetch("http://localhost:8000/aulas");
+      const resposta = await fetch("https://desafioverzel-api.herokuapp.com/aulas");
 
       const data = await resposta.json();
       setOpenLoading(false);

@@ -27,7 +27,7 @@ export default function EditarAula() {
     
     try{
       setOpenLoading(true);
-      const resposta = await fetch(`http://localhost:8000/aulas/${id}`, {
+      const resposta = await fetch(`https://desafioverzel-api.herokuapp.com/aulas/${id}`, {
         method: 'PUT',
         body: JSON.stringify(data),
         headers: {

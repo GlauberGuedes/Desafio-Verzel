@@ -49,7 +49,7 @@ export default function Login() {
     }
     setOpenLoading(true);
     try {
-      const resposta = await fetch("http://localhost:8000/login", {
+      const resposta = await fetch("https://desafioverzel-api.herokuapp.com/login", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {

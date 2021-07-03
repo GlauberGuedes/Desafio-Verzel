@@ -29,7 +29,7 @@ export default function Modal({ id, setErro, setOpenLoading, token, get, nome })
     setOpenLoading(true);
     
     try {
-      const resposta = await fetch(`http://localhost:8000/${nome}/${id}`, {
+      const resposta = await fetch(`https://desafioverzel-api.herokuapp.com/${nome}/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`

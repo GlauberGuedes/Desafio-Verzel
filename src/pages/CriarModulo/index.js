@@ -30,7 +30,7 @@ export default function CriarModulo() {
     
     try{
       setOpenLoading(true);
-      const resposta = await fetch(`http://localhost:8000/modulos`, {
+      const resposta = await fetch(`https://desafioverzel-api.herokuapp.com/modulos`, {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {

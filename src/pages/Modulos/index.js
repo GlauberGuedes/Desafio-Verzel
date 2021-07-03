@@ -27,7 +27,7 @@ export default function Modulos() {
     setErro("");
     setOpenLoading(true);
     try {
-      const resposta = await fetch("http://localhost:8000/modulos");
+      const resposta = await fetch("https://desafioverzel-api.herokuapp.com/modulos");
 
       const data = await resposta.json();
       setOpenLoading(false);

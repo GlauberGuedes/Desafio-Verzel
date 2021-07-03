@@ -56,7 +56,7 @@ export default function Cadastro() {
       senha: data.senha
     }
     try{
-      const resposta = await fetch('http://localhost:8000/cadastro', {
+      const resposta = await fetch('https://desafioverzel-api.herokuapp.com/cadastro', {
         method: 'POST',
         body: JSON.stringify(dados),
         headers: {

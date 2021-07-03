@@ -30,7 +30,7 @@ export default function CriarAula() {
 
     try{
       setOpenLoading(true);
-      const resposta = await fetch(`http://localhost:8000/aulas`, {
+      const resposta = await fetch(`https://desafioverzel-api.herokuapp.com/aulas`, {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {

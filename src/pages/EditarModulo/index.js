@@ -27,7 +27,7 @@ export default function EditarModulo() {
     
     try{
       setOpenLoading(true);
-      const resposta = await fetch(`http://localhost:8000/modulos/${id}`, {
+      const resposta = await fetch(`https://desafioverzel-api.herokuapp.com/modulos/${id}`, {
         method: 'PUT',
         body: JSON.stringify(data),
         headers: {

@@ -28,7 +28,7 @@ export default function Home() {
     setErro("");
     setOpenLoading(true);
     try {
-      const resposta = await fetch("http://localhost:8000/modulos");
+      const resposta = await fetch("https://desafioverzel-api.herokuapp.com/modulos");
 
       const data = await resposta.json();
       setOpenLoading(false);
@@ -45,7 +45,7 @@ export default function Home() {
     setErro("");
     setOpenLoading(true);
     try {
-      const resposta = await fetch(`http://localhost:8000/aulas?modulo=${nome}`);
+      const resposta = await fetch(`https://desafioverzel-api.herokuapp.com/aulas?modulo=${nome}`);
 
       const data = await resposta.json();
       setOpenLoading(false);
