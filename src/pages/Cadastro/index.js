@@ -71,7 +71,7 @@ export default function Cadastro() {
         return setErro(informacoesApi);
       }
 
-      history.push('/');
+      history.push('/login');
     }catch(error) {
       setOpenLoading(false);
       setErro(error.message);

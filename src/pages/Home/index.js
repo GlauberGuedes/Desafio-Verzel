@@ -102,7 +102,7 @@ export default function Home() {
                   <h5 className="data">
                     {new Date(aula.data).toLocaleString(undefined, {year:'numeric', month:'numeric', day: 'numeric'})} 
                     {" "}às{" "} 
-                    {new Date(aula.data).toLocaleTimeString(undefined, {hour: 'numeric', minute: 'numeric'})}
+                    {new Date(aula.data).toLocaleString(undefined, {hour: 'numeric', minute: 'numeric'})}
                     </h5> 
                   <p style={{color: 'white'}}>Módulo: {aula.modulo}</p>
                 </div>

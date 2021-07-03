@@ -27,12 +27,19 @@ export default function CriarAula() {
     if(!data.nome || !data.modulo || !data.data) {
       return setErro('Todos os campos são obrigatórios.')
     }
+    const dataPage = new Date(data.data);
+
+    const dados = {
+      nome: data.nome,
+      modulo: data.modulo,
+      data: dataPage
+    }
 
     try{
       setOpenLoading(true);
       const resposta = await fetch(`https://desafioverzel-api.herokuapp.com/aulas`, {
         method: 'POST',
-        body: JSON.stringify(data),
+        body: JSON.stringify(dados),
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-type': 'application/json',

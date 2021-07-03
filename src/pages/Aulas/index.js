@@ -38,7 +38,7 @@ export default function Aulas() {
       return setErro(error.message);
     }
   }
-
+  
   return (
     <div className={classes.body}>
       <Navbar />
@@ -57,7 +57,7 @@ export default function Aulas() {
                   <h4 className={classes.data}>
                     {new Date(aula.data).toLocaleString(undefined, {year:'numeric', month:'numeric', day: 'numeric'})} 
                     {" "}às{" "} 
-                    {new Date(aula.data).toLocaleTimeString(undefined, {hour: 'numeric', minute: 'numeric'})}
+                    {new Date(aula.data).toLocaleString(undefined, {hour: 'numeric', minute: 'numeric'})}
                     </h4> 
                   <p style={{color: 'white'}}>Módulo: {aula.modulo}</p>              
               </div>

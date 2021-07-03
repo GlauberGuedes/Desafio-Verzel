@@ -24,12 +24,24 @@ export default function EditarAula() {
 
   async function onSubmit(data) {
     setErro('');
-    
+
+    let dataPage;
+
+    if(data.data) {
+      dataPage = new Date(data.data);
+    }
+
+    const dados = {
+      nome: data.nome,
+      modulo: data.modulo,
+      data: dataPage
+    }
+   
     try{
       setOpenLoading(true);
       const resposta = await fetch(`https://desafioverzel-api.herokuapp.com/aulas/${id}`, {
         method: 'PUT',
-        body: JSON.stringify(data),
+        body: JSON.stringify(dados),
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-type': 'application/json',
