@@ -14,7 +14,7 @@ import SnackbarAlert from "../../components/SnackbarAlert";
 
 export default function CriarModulo() {
   const classes = useStyles();
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const { token } = useAuth();
   const [erro, setErro] = useState('');
   const [openLoading, setOpenLoading] = useState(false);
@@ -43,12 +43,14 @@ export default function CriarModulo() {
       setOpenLoading(false);
 
       if(!resposta.ok) {
+        reset({})
         return setErro(resultado);
       }
 
       history.push('/modulos');
 
     }catch(error) {
+      reset({})
       setOpenLoading(false);
       return setErro(error.message)
     }
