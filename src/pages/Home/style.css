@@ -56,8 +56,11 @@ h2 {
   flex-wrap: wrap;
 }
 
-.card-modulo {
+button {
   all: unset;
+}
+
+.listaModulos .card-modulo {
   display: flex;
   justify-content: space-between;
   align-items: center;
