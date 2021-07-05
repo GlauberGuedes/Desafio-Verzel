@@ -6,11 +6,13 @@ baixar o repositório e dar um "npm start".
 
 ## Página Home
 
-Nela contém os modulos e aulas que foram criados, para visualizar as aulas, basta clicar no módulo que deseja. Contém também dois botões no header, um de cadastro e outro de login.
+Nela contém os modulos e aulas que foram criados, para visualizar as aulas basta clicar no módulo que deseja.
+
+Contém também dois botões no header, um de cadastro e outro de login.
 
 ## Página de Cadastro
 
-Nesta página você preencher seus dados (nome, email e senha) para fazer seu cadastro e ser redirecionado para a página de login.
+Nesta página você preenche seus dados (nome, email e senha) para fazer seu cadastro e ser redirecionado para a página de login.
 
 ## Página Login
 
